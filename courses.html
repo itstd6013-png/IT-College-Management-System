@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>IT College Dashboard</title>
+
+    <!-- CSS داخلي - تصميم كامل -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1920&h=1080&q=80');
+             background-size: cover;
+             background-position: center;
+            background-attachment: fixed;
+            padding: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: rgba(44, 62, 80, 0.95);
+            color: white;
+            padding: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    background: white; /* خلفية بيضاء لأن الصورة شفافة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+        .logo-section h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* MENU أفقي */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .main-nav a,
+        .main-nav button {
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        .main-nav a:hover,
+        .main-nav button:hover {
+            background-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .main-nav button {
+            background: none;
+            cursor: pointer;
+            border: 1px solid white;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 25px auto;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        main h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        main p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: rgba(44, 62, 80, 0.98);
+            color: #ecf0f1;
+            text-align: center;
+            padding: 18px 0;
+            margin-top: auto;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        /* === وضع الظلام (Dark Theme) === */
+        body.dark-theme {
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+        }
+
+        body.dark-theme main {
+            background: rgba(30, 30, 30, 0.95);
+            color: #f0f0f0;
+        }
+
+        body.dark-theme main h2 {
+            color: #3498db;
+        }
+
+        body.dark-theme main p {
+            color: #ccc;
+        }
+
+        /* تحسين العرض على الجوال */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .main-nav ul {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            main {
+                margin: 15px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+               <div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/3687/3687094.png" alt="IT College Logo">
+</div>
+                <h1>IT College Dashboard</h1>
+            </div>
+
+            <!-- MENU أفقي -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="activities.html">College Activities</a></li>
+                    <li><a href="departments.html">Departments</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="register.html">Student Register</a></li>
+                    <li><a href="login.html" id="loginLink">Login / Logout</a></li>
+                    <li><button id="themeToggle">Light/Dark Theme</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+   <main>
+    <h2 id="deptTitle">Department Courses</h2>
+
+    <button id="addCourseBtn" 
+            style="margin: 15px 0; padding: 8px 15px; background: #2ecc71; color: white; border: none; border-radius: 4px; cursor: pointer;">
+        Add New Course
+    </button>
+
+    <div id="coursesList" style="margin-top: 20px;"></div>
+
+    <div id="courseModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000;">
+        <div style="background: white; margin: 5% auto; padding: 20px; width: 90%; max-width: 500px; border-radius: 8px; position: relative;">
+            <span id="closeCourseModal" style="position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer;">&times;</span>
+            <h3 id="modalTitle">Add New Course</h3>
+            <form id="courseForm">
+                <input type="hidden" id="editCourseIndex">
+                <div style="margin-bottom: 15px;">
+                    <label>Course ID:</label><br>
+                    <input type="text" id="courseID" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>English Name:</label><br>
+                    <input type="text" id="courseEnName" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Arabic Name:</label><br>
+                    <input type="text" id="courseArbName" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Credits:</label><br>
+                    <input type="number" id="courseCredit" min="1" max="6" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Status:</label><br>
+                    <select id="courseStatus" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Planned">Planned</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>
+                        <input type="checkbox" id="isActive"> Is Active?
+                    </label>
+                </div>
+                <button type="submit" style="background: #3498db; color: white; padding: 8px 15px; border: none; border-radius: 4px;">Save</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; <span id="currentYear">2026</span> IT College Dashboard. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Use</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript داخلي -->
+    <script>
+        // تبديل السمة (Light/Dark)
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.getElementById('themeToggle');
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                button.textContent = 'Light Mode';
+            } else {
+                button.textContent = 'Light/Dark Theme';
+            }
+        }
+        // تحديث حالة زر Login/Logout
+document.addEventListener('DOMContentLoaded', function() {
+    const loginLink = document.getElementById('loginLink');
+    if (loginLink) {
+        const currentID = localStorage.getItem('currentStudentID');
+        if (currentID) {
+            loginLink.textContent = 'Logout';
+            loginLink.href = '#'; // سيتعامل معه الجافاسكريبت
+            loginLink.onclick = function() {
+                localStorage.removeItem('currentStudentID');
+                alert('You have been logged out.');
+                window.location.href = 'home.html';
+                return false;
+            };
+        } else {
+            loginLink.textContent = 'Login / Logout';
+            loginLink.href = 'login.html';
+        }
+    }
+});
+
+        // عرض السنة الحالية
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // ربط الزر بالدالة
+        document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+        // === Courses Page ===
+document.addEventListener('DOMContentLoaded', function() {
+    const deptID = localStorage.getItem('currentDepartmentID');
+    if (!deptID) {
+        document.getElementById('deptTitle').textContent = 'Error: No department selected';
+        document.getElementById('addCourseBtn').style.display = 'none';
+        return;
+    }
+
+   document.getElementById('deptTitle').textContent = "Courses - Department ID: " + deptID;
+    
+    loadCourses(deptID);
+    
+    document.getElementById('addCourseBtn').addEventListener('click', () => openCourseModal(null));
+    document.getElementById('closeCourseModal').addEventListener('click', closeCourseModal);
+    document.getElementById('courseModal').addEventListener('click', (e) => {
+        if (e.target === this) closeCourseModal();
+    });
+    document.getElementById('courseForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        saveCourse(deptID);
+    });
+});
+
+function loadCourses(deptID) {
+    const allCourses = JSON.parse(localStorage.getItem('college_courses')) || [];
+    const courses = allCourses.filter(c => c.departmentID === deptID);
+
+    const container = document.getElementById('coursesList');
+    container.innerHTML = '';
+
+    if (courses.length === 0) {
+        container.innerHTML = '<p>No courses added yet for this department.</p>';
+        return;
+    }
+
+    courses.forEach((course, index) => {
+        const courseDiv = document.createElement('div');
+        courseDiv.style = 'background: white; padding: 15px; margin-bottom: 10px; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);';
+        courseDiv.innerHTML = `
+            <strong>${course.courseEnName}</strong> (${course.courseID})<br>
+            <em>${course.courseArbName}</em><br>
+            <small>Credits: ${course.courseCredit} | Status: ${course.courseStatus} | Active: ${course.isActive ? 'Yes' : 'No'}</small>
+            <div style="margin-top: 8px;">
+                <button onclick="editCourse(${index})" style="padding: 4px 8px; background: #3498db; color: white; border: none; border-radius: 3px; cursor: pointer; margin-right: 5px;">Edit</button>
+                <button onclick="deleteCourse('${course.courseID}', '${deptID}')" style="padding: 4px 8px; background: #e74c3c; color: white; border: none; border-radius: 3px; cursor: pointer;">Delete</button>
+            </div>
+        `;
+        container.appendChild(courseDiv);
+    });
+}
+
+function openCourseModal(course = null) {
+    document.getElementById('editCourseIndex').value = '';
+    document.getElementById('modalTitle').textContent = course ? 'Edit Course' : 'Add New Course';
+    
+    if (course) {
+        document.getElementById('courseID').value = course.courseID;
+        document.getElementById('courseEnName').value = course.courseEnName;
+        document.getElementById('courseArbName').value = course.courseArbName;
+        document.getElementById('courseCredit').value = course.courseCredit;
+        document.getElementById('courseStatus').value = course.courseStatus;
+        document.getElementById('isActive').checked = course.isActive;
+        document.getElementById('editCourseIndex').value = course.index;
+    } else {
+        document.getElementById('courseForm').reset();
+    }
+    
+    document.getElementById('courseModal').style.display = 'block';
+}
+
+function closeCourseModal() {
+    document.getElementById('courseModal').style.display = 'none';
+}
+
+function editCourse(index) {
+    const deptID = localStorage.getItem('currentDepartmentID');
+    const allCourses = JSON.parse(localStorage.getItem('college_courses')) || [];
+    const courses = allCourses.filter(c => c.departmentID === deptID);
+    
+    if (courses[index]) {
+        courses[index].index = index;
+        openCourseModal(courses[index]);
+    }
+}
+
+function deleteCourse(courseID, deptID) {
+    if (confirm('Are you sure you want to delete this course?')) {
+        let allCourses = JSON.parse(localStorage.getItem('college_courses')) || [];
+        allCourses = allCourses.filter(c => !(c.courseID === courseID && c.departmentID === deptID));
+        localStorage.setItem('college_courses', JSON.stringify(allCourses));
+        loadCourses(deptID);
+    }
+}
+
+function saveCourse(deptID) {
+    const course = {
+        courseID: document.getElementById('courseID').value.trim(),
+        courseEnName: document.getElementById('courseEnName').value.trim(),
+        courseArbName: document.getElementById('courseArbName').value.trim(),
+        courseCredit: parseInt(document.getElementById('courseCredit').value),
+        courseStatus: document.getElementById('courseStatus').value,
+        isActive: document.getElementById('isActive').checked,
+        departmentID: deptID
+    };
+
+    let allCourses = JSON.parse(localStorage.getItem('college_courses')) || [];
+    
+    const editIndex = document.getElementById('editCourseIndex').value;
+    if (editIndex !== '') {
+        const deptCourses = allCourses.filter(c => c.departmentID === deptID);
+        const globalIndex = allCourses.findIndex(c => c.courseID === deptCourses[editIndex].courseID && c.departmentID === deptID);
+        if (globalIndex !== -1) {
+            allCourses[globalIndex] = course;
+        }
+    } else {
+        if (allCourses.some(c => c.courseID === course.courseID && c.departmentID === deptID)) {
+            alert('Course ID already exists in this department!');
+            return;
+        }
+        allCourses.push(course);
+    }
+
+    localStorage.setItem('college_courses', JSON.stringify(allCourses));
+    loadCourses(deptID);
+    closeCourseModal();
+}
+    </script>
+</body>
+</html>

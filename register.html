@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>IT College Dashboard</title>
+
+    <!-- CSS داخلي - تصميم كامل -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1920&h=1080&q=80');
+             background-size: cover;
+             background-position: center;
+            background-attachment: fixed;
+            padding: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: rgba(44, 62, 80, 0.95);
+            color: white;
+            padding: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    background: white; /* خلفية بيضاء لأن الصورة شفافة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+        .logo-section h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* MENU أفقي */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .main-nav a,
+        .main-nav button {
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        .main-nav a:hover,
+        .main-nav button:hover {
+            background-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .main-nav button {
+            background: none;
+            cursor: pointer;
+            border: 1px solid white;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 25px auto;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        main h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        main p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: rgba(44, 62, 80, 0.98);
+            color: #ecf0f1;
+            text-align: center;
+            padding: 18px 0;
+            margin-top: auto;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        /* === وضع الظلام (Dark Theme) === */
+        body.dark-theme {
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+        }
+
+        body.dark-theme main {
+            background: rgba(30, 30, 30, 0.95);
+            color: #f0f0f0;
+        }
+
+        body.dark-theme main h2 {
+            color: #3498db;
+        }
+
+        body.dark-theme main p {
+            color: #ccc;
+        }
+
+        /* تحسين العرض على الجوال */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .main-nav ul {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            main {
+                margin: 15px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+               <div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/3687/3687094.png" alt="IT College Logo">
+</div>
+                <h1>IT College Dashboard</h1>
+            </div>
+
+            <!-- MENU أفقي -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="activities.html">College Activities</a></li>
+                    <li><a href="departments.html">Departments</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="register.html">Student Register</a></li>
+                    <li><a href="login.html" id="loginLink">Login / Logout</a></li>
+                    <li><button id="themeToggle">Light/Dark Theme</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+    <h2>Student Registration</h2>
+    <p>Register a new student or manage existing records.</p>
+    <!-- نموذج التسجيل -->
+    <form id="studentForm" style="margin-top: 20px; max-width: 700px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div>
+                <label for="student_ID">Student ID *</label><br>
+                <input type="text" id="student_ID" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                <span id="idError" style="color: red; font-size: 0.85em; display: none;">ID must be numeric.</span>
+            </div>
+            <div>
+                <label for="student_En_Name">English Name *</label><br>
+                <input type="text" id="student_En_Name" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                <span id="enNameError" style="color: red; font-size: 0.85em; display: none;">Name must contain only letters and spaces.</span>
+            </div>
+            <div>
+                <label for="student_Arb_Name">Arabic Name *</label><br>
+                <input type="text" id="student_Arb_Name" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                <span id="arbNameError" style="color: red; font-size: 0.85em; display: none;">Please enter a valid Arabic name.</span>
+            </div>
+            <div>
+                <label for="student_Password">Password *</label><br>
+                <input type="password" id="student_Password" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                <span id="passError" style="color: red; font-size: 0.85em; display: none;">Password must be at least 6 characters.</span>
+            </div>
+            <div>
+                <label for="student_Email">Email *</label><br>
+                <input type="email" id="student_Email" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                <span id="emailRegError" style="color: red; font-size: 0.85em; display: none;">Invalid email format.</span>
+            </div>
+            <div>
+                <label for="student_phone">Phone *</label><br>
+                <input type="tel" id="student_phone" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                <span id="phoneError" style="color: red; font-size: 0.85em; display: none;">Phone must be numeric (e.g., 0912345678).</span>
+            </div>
+            <div>
+                <label for="student_Gender">Gender *</label><br>
+                <select id="student_Gender" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                    <option value="">-- Select --</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div>
+                <label for="student_BoD">Birth Date *</label><br>
+                <input type="date" id="student_BoD" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+            <div style="grid-column: span 2;">
+                <label for="student_department_Name">Department Name *</label><br>
+                <input type="text" id="student_department_Name" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+            <div style="grid-column: span 2;">
+                <label for="student_department_id">Department ID *</label><br>
+                <input type="text" id="student_department_id" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                <span id="deptIdError" style="color: red; font-size: 0.85em; display: none;">Department ID must be numeric.</span>
+            </div>
+        </div>
+        <button type="submit" style="margin-top: 20px; background-color: #2ecc71; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Add Student</button>
+    </form>
+
+    <!-- قسم العرض والحذف -->
+    <div style="margin-top: 40px; max-width: 700px;">
+        <h3>Retrieve or Delete Student</h3>
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <input type="text" id="searchID" placeholder="Enter Student ID" style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+            <button id="showBtn" style="background-color: #3498db; color: white; padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer;">Show</button>
+            <button id="deleteBtn" style="background-color: #e74c3c; color: white; padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer;">Delete</button>
+        </div>
+        <div id="result" style="margin-top: 15px; padding: 15px; background-color: #f8f9fa; border-radius: 6px; display: none;"></div>
+    </div>
+
+    <div id="notification" style="margin-top: 20px; padding: 10px; border-radius: 4px; display: none;"></div>
+</main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; <span id="currentYear">2026</span> IT College Dashboard. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Use</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript داخلي -->
+    <script>
+        // تبديل السمة (Light/Dark)
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.getElementById('themeToggle');
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                button.textContent = 'Light Mode';
+            } else {
+                button.textContent = 'Light/Dark Theme';
+            }
+        }
+        // تحديث حالة زر Login/Logout
+document.addEventListener('DOMContentLoaded', function() {
+    const loginLink = document.getElementById('loginLink');
+    if (loginLink) {
+        const currentID = localStorage.getItem('currentStudentID');
+        if (currentID) {
+            loginLink.textContent = 'Logout';
+            loginLink.href = '#'; // سيتعامل معه الجافاسكريبت
+            loginLink.onclick = function() {
+                localStorage.removeItem('currentStudentID');
+                alert('You have been logged out.');
+                window.location.href = 'home.html';
+                return false;
+            };
+        } else {
+            loginLink.textContent = 'Login / Logout';
+            loginLink.href = 'login.html';
+        }
+    }
+});
+
+        // عرض السنة الحالية
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // ربط الزر بالدالة
+        document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+
+// === Student Register Functions ===
+
+// ربط أحداث النموذج بعد تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    const studentForm = document.getElementById('studentForm');
+    const showBtn = document.getElementById('showBtn');
+    const deleteBtn = document.getElementById('deleteBtn');
+
+    if (studentForm) {
+        studentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateForm()) {
+                saveStudent();
+            }
+        });
+    }
+
+    if (showBtn) showBtn.addEventListener('click', showStudent);
+    if (deleteBtn) deleteBtn.addEventListener('click', deleteStudent);
+});
+
+function validateForm() {
+    let valid = true;
+
+    // Student ID: numbers only
+    const id = document.getElementById('student_ID').value.trim();
+    const idError = document.getElementById('idError');
+    if (!/^\d+$/.test(id)) {
+        idError.style.display = 'block';
+        valid = false;
+    } else {
+        idError.style.display = 'none';
+    }
+
+    // English Name: letters and spaces
+    const enName = document.getElementById('student_En_Name').value.trim();
+    const enNameError = document.getElementById('enNameError');
+    if (!/^[A-Za-z\s]+$/.test(enName)) {
+        enNameError.style.display = 'block';
+        valid = false;
+    } else {
+        enNameError.style.display = 'none';
+    }
+
+    // Arabic Name: allow Arabic + spaces
+    const arbName = document.getElementById('student_Arb_Name').value.trim();
+    const arbNameError = document.getElementById('arbNameError');
+    if (!/^[\u0600-\u06FF\s]+$/.test(arbName)) {
+        arbNameError.style.display = 'block';
+        valid = false;
+    } else {
+        arbNameError.style.display = 'none';
+    }
+
+    // Password: min 6 chars
+    const pass = document.getElementById('student_Password').value;
+    const passError = document.getElementById('passError');
+    if (pass.length < 6) {
+        passError.style.display = 'block';
+        valid = false;
+    } else {
+        passError.style.display = 'none';
+    }
+
+    // Email
+    const email = document.getElementById('student_Email').value.trim();
+    const emailRegError = document.getElementById('emailRegError');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailRegError.style.display = 'block';
+        valid = false;
+    } else {
+        emailRegError.style.display = 'none';
+    }
+
+    // Phone: numbers only (9-12 digits)
+    const phone = document.getElementById('student_phone').value.trim();
+    const phoneError = document.getElementById('phoneError');
+    if (!/^\d{9,12}$/.test(phone)) {
+        phoneError.style.display = 'block';
+        valid = false;
+    } else {
+        phoneError.style.display = 'none';
+    }
+
+    // Department ID: allow alphanumeric (e.g., CS101, IS202)
+    const deptId = document.getElementById('student_department_id').value.trim();
+    const deptIdError = document.getElementById('deptIdError');
+    if (!/^[a-zA-Z0-9]+$/.test(deptId)) {
+        deptIdError.style.display = 'block';
+        valid = false;
+    } else {
+        deptIdError.style.display = 'none';
+    }
+
+    return valid;
+}
+
+function saveStudent() {
+    // جمع بيانات الطالب من الحقول
+    const student = {
+        student_ID: document.getElementById('student_ID').value.trim(),
+        student_En_Name: document.getElementById('student_En_Name').value.trim(),
+        student_Arb_Name: document.getElementById('student_Arb_Name').value.trim(),
+        student_Password: document.getElementById('student_Password').value,
+        student_Email: document.getElementById('student_Email').value.trim(),
+        student_phone: document.getElementById('student_phone').value.trim(),
+        student_Gender: document.getElementById('student_Gender').value,
+        student_BoD: document.getElementById('student_BoD').value,
+        student_department_Name: document.getElementById('student_department_Name').value.trim(),
+        student_department_id: document.getElementById('student_department_id').value.trim()
+    };
+
+    // حفظ البيانات في Local Storage باستخدام student_ID كمفتاح
+    localStorage.setItem('student_' + student.student_ID, JSON.stringify(student));
+
+    // إظهار رسالة نجاح
+    const notif = document.getElementById('notification');
+    if (notif) {
+        notif.textContent = 'Student added successfully!';
+        notif.style.display = 'block';
+        notif.style.backgroundColor = '#d4edda';
+        notif.style.color = '#155724';
+        setTimeout(() => {
+            notif.style.display = 'none';
+        }, 3000);
+    }
+
+    // مسح النموذج بعد الحفظ
+    document.getElementById('studentForm').reset();
+}
+
+
+function showStudent() {
+    const id = document.getElementById('searchID').value.trim();
+    const resultDiv = document.getElementById('result');
+    const data = localStorage.getItem('student_' + id);
+    if (data) {
+        const student = JSON.parse(data);
+        resultDiv.innerHTML = `
+            <strong>ID:</strong> ${student.student_ID}<br>
+            <strong>English Name:</strong> ${student.student_En_Name}<br>
+            <strong>Arabic Name:</strong> ${student.student_Arb_Name}<br>
+            <strong>Email:</strong> ${student.student_Email}<br>
+            <strong>Phone:</strong> ${student.student_phone}<br>
+            <strong>Gender:</strong> ${student.student_Gender}<br>
+            <strong>Birth Date:</strong> ${student.student_BoD}<br>
+            <strong>Department:</strong> ${student.student_department_Name} (ID: ${student.student_department_id})
+        `;
+        resultDiv.style.display = 'block';
+    } else {
+        resultDiv.innerHTML = 'Student not found.';
+        resultDiv.style.display = 'block';
+    }
+}
+
+function deleteStudent() {
+    const id = document.getElementById('searchID').value.trim();
+    if (localStorage.getItem('student_' + id)) {
+        localStorage.removeItem('student_' + id);
+        showNotification('Student deleted successfully!', 'success');
+        document.getElementById('result').style.display = 'none';
+    } else {
+        showNotification('Student not found!', 'error');
+    }
+}
+
+function showNotification(message, type) {
+    const notif = document.getElementById('notification');
+    if (notif) {
+        notif.textContent = message;
+        notif.style.display = 'block';
+        notif.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
+        notif.style.color = type === 'success' ? '#155724' : '#721c24';
+        setTimeout(() => notif.style.display = 'none', 3000);
+    }
+}
+        
+    </script>
+</body>
+</html>

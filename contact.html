@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>IT College Dashboard</title>
+
+    <!-- CSS داخلي - تصميم كامل -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1920&h=1080&q=80');
+             background-size: cover;
+             background-position: center;
+            background-attachment: fixed;
+            padding: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: rgba(44, 62, 80, 0.95);
+            color: white;
+            padding: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    background: white; /* خلفية بيضاء لأن الصورة شفافة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+        .logo-section h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* MENU أفقي */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .main-nav a,
+        .main-nav button {
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        .main-nav a:hover,
+        .main-nav button:hover {
+            background-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .main-nav button {
+            background: none;
+            cursor: pointer;
+            border: 1px solid white;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 25px auto;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        main h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        main p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: rgba(44, 62, 80, 0.98);
+            color: #ecf0f1;
+            text-align: center;
+            padding: 18px 0;
+            margin-top: auto;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        /* === وضع الظلام (Dark Theme) === */
+        body.dark-theme {
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+        }
+
+        body.dark-theme main {
+            background: rgba(30, 30, 30, 0.95);
+            color: #f0f0f0;
+        }
+
+        body.dark-theme main h2 {
+            color: #3498db;
+        }
+
+        body.dark-theme main p {
+            color: #ccc;
+        }
+
+        /* تحسين العرض على الجوال */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .main-nav ul {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            main {
+                margin: 15px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+               <div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/3687/3687094.png" alt="IT College Logo">
+</div>
+                <h1>IT College Dashboard</h1>
+            </div>
+
+            <!-- MENU أفقي -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="activities.html">College Activities</a></li>
+                    <li><a href="departments.html">Departments</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="register.html">Student Register</a></li>
+                    <li><a href="login.html" id="loginLink">Login / Logout</a></li>
+                    <li><button id="themeToggle">Light/Dark Theme</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out to us using the form below.</p>
+
+    <form id="contactForm" style="margin-top: 20px; max-width: 600px;">
+        <div style="margin-bottom: 15px;">
+            <label for="contactName">Contact Name:</label><br>
+            <input type="text" id="contactName" name="contactName" 
+                   style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;" 
+                   required>
+            <span id="nameError" style="color: red; font-size: 0.9em; display: none;">Name must contain only letters and spaces.</span>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" 
+                   style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;" 
+                   required>
+            <span id="emailError" style="color: red; font-size: 0.9em; display: none;">Please enter a valid email address.</span>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" 
+                      style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;" 
+                      required></textarea>
+        </div>
+
+        <button type="submit" 
+                style="background-color: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+            Send
+        </button>
+    </form>
+
+    <div id="notification" style="margin-top: 20px; padding: 10px; background-color: #d4edda; color: #155724; border-radius: 4px; display: none;">
+        It has been sent.
+    </div>
+
+    <h3 style="margin-top: 40px;">Our Location</h3>
+    <div style="margin-top: 15px;">
+        <!-- خريطة Google Maps -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.040337366487!2d-122.26038388468642!3d37.87159457975863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80857c4b8a3e3a3d%3A0x3b3b3b3b3b3b3b3b!2sUniversity%20of%20California%2C%20Berkeley!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+            width="100%" 
+            height="300" 
+            style="border:0; border-radius: 8px;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; <span id="currentYear">2026</span> IT College Dashboard. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Use</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript داخلي -->
+    <script>
+        // تبديل السمة (Light/Dark)
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.getElementById('themeToggle');
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                button.textContent = 'Light Mode';
+            } else {
+                button.textContent = 'Light/Dark Theme';
+            }
+        }
+        // تحديث حالة زر Login/Logout
+document.addEventListener('DOMContentLoaded', function() {
+    const loginLink = document.getElementById('loginLink');
+    if (loginLink) {
+        const currentID = localStorage.getItem('currentStudentID');
+        if (currentID) {
+            loginLink.textContent = 'Logout';
+            loginLink.href = '#'; // سيتعامل معه الجافاسكريبت
+            loginLink.onclick = function() {
+                localStorage.removeItem('currentStudentID');
+                alert('You have been logged out.');
+                window.location.href = 'home.html';
+                return false;
+            };
+        } else {
+            loginLink.textContent = 'Login / Logout';
+            loginLink.href = 'login.html';
+        }
+    }
+});
+
+        // عرض السنة الحالية
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // ربط الزر بالدالة
+        document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+        // === التحقق من نموذج Contact Us ===
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // يمنع إرسال النموذج فعليًا
+
+    let isValid = true;
+
+    // 1. التحقق من الاسم: أحرف ومسافات فقط
+    const nameInput = document.getElementById('contactName');
+    const nameError = document.getElementById('nameError');
+    const namePattern = /^[A-Za-z\s]+$/;
+    if (!namePattern.test(nameInput.value.trim()) || nameInput.value.trim() === '') {
+        nameError.style.display = 'block';
+        isValid = false;
+    } else {
+        nameError.style.display = 'none';
+    }
+
+    // 2. التحقق من البريد الإلكتروني
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('emailError');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(emailInput.value.trim())) {
+        emailError.style.display = 'block';
+        isValid = false;
+    } else {
+        emailError.style.display = 'none';
+    }
+
+    // 3. إذا كانت البيانات صحيحة → إظهار الإشعار
+    if (isValid) {
+        document.getElementById('notification').style.display = 'block';
+    }
+});
+    </script>
+</body>
+</html>

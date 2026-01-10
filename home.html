@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>IT College Dashboard</title>
+
+    <!-- CSS داخلي - تصميم كامل -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1920&h=1080&q=80');
+             background-size: cover;
+             background-position: center;
+            background-attachment: fixed;
+            padding: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: rgba(44, 62, 80, 0.95);
+            color: white;
+            padding: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    background: white; /* خلفية بيضاء لأن الصورة شفافة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+        .logo-section h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* MENU أفقي */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .main-nav a,
+        .main-nav button {
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        .main-nav a:hover,
+        .main-nav button:hover {
+            background-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .main-nav button {
+            background: none;
+            cursor: pointer;
+            border: 1px solid white;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 25px auto;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        main h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        main p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: rgba(44, 62, 80, 0.98);
+            color: #ecf0f1;
+            text-align: center;
+            padding: 18px 0;
+            margin-top: auto;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        /* === وضع الظلام (Dark Theme) === */
+        body.dark-theme {
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+        }
+
+        body.dark-theme main {
+            background: rgba(30, 30, 30, 0.95);
+            color: #f0f0f0;
+        }
+
+        body.dark-theme main h2 {
+            color: #3498db;
+        }
+
+        body.dark-theme main p {
+            color: #ccc;
+        }
+
+        /* تحسين العرض على الجوال */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .main-nav ul {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            main {
+                margin: 15px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+               <div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/3687/3687094.png" alt="IT College Logo">
+</div>
+                <h1>IT College Dashboard</h1>
+            </div>
+
+            <!-- MENU أفقي -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="activities.html">College Activities</a></li>
+                    <li><a href="departments.html">Departments</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="register.html">Student Register</a></li>
+                    <li><a href="login.html" id="loginLink">Login / Logout</a></li>
+                    <li><button id="themeToggle">Light/Dark Theme</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <h2>Welcome to IT College Dashboard</h2>
+        <p>This is the home page of your college system. All pages share the same layout with a consistent header, navigation menu, and footer.</p>
+        <p>✅ This design is responsive, attractive, and fully functional using only HTML, CSS, and JavaScript — all inside this single file.</p>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; <span id="currentYear">2026</span> IT College Dashboard. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Use</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript داخلي -->
+    <script>
+        // تبديل السمة (Light/Dark)
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.getElementById('themeToggle');
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                button.textContent = 'Light Mode';
+            } else {
+                button.textContent = 'Light/Dark Theme';
+            }
+        }
+        // تحديث حالة زر Login/Logout
+document.addEventListener('DOMContentLoaded', function() {
+    const loginLink = document.getElementById('loginLink');
+    if (loginLink) {
+        const currentID = localStorage.getItem('currentStudentID');
+        if (currentID) {
+            loginLink.textContent = 'Logout';
+            loginLink.href = '#'; // سيتعامل معه الجافاسكريبت
+            loginLink.onclick = function() {
+                localStorage.removeItem('currentStudentID');
+                alert('You have been logged out.');
+                window.location.href = 'home.html';
+                return false;
+            };
+        } else {
+            loginLink.textContent = 'Login / Logout';
+            loginLink.href = 'login.html';
+        }
+    }
+});
+
+        // عرض السنة الحالية
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // ربط الزر بالدالة
+        document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    </script>
+</body>
+</html>
